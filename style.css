@@ -1356,13 +1356,13 @@ a[href*="unicorn.studio"]{
 }
 .section-new-seven {
     position: relative;
-    background: url('assets/image copy 2.png') center/cover no-repeat;
+    background: url('image copy 2.png') center/cover no-repeat;
     overflow: hidden;
   }
   
   .section-new-eleven {
     position: relative;
-    background: url('assets/image copy 3.png') center/cover no-repeat;
+    background: url('image copy 3.png') center/cover no-repeat;
     overflow: hidden;
   }
 
@@ -1390,7 +1390,7 @@ a[href*="unicorn.studio"]{
 
   .section-new-twenty-eight{
     position: relative;
-    background: url('assets/image copy 5.png') center/cover no-repeat;
+    background: url('image copy 5.png') center/cover no-repeat;
     overflow: hidden;
     height: 100vh;
   }
@@ -1402,7 +1402,7 @@ a[href*="unicorn.studio"]{
   }
 
   .section-new-project-showcase{
-    background: url('assets/image copy 2.png') center/cover no-repeat;
+    background: url('image copy 2.png') center/cover no-repeat;
     overflow: hidden;
     padding: 80px 0;
     background-size: contain;
@@ -1881,7 +1881,7 @@ a[href*="unicorn.studio"]{
 }
 .iota{
     padding: 20px;
-    background: url("assets/3.jpeg");
+    background: url("https://drive.google.com/file/d/1z2WrjMQNu30Qvaz1Jvk0Co4tE-Kt1lMJ/view?usp=drive_link ");
     background-size: cover;
     border-radius: 20px;
     height: 400px;
@@ -1987,7 +1987,7 @@ color: rgba(255, 255, 255, 0.495);
 
 /* Section 0 background image */
 section.mb-250:first-of-type {
-    background-image: url('assets/3.jpeg');
+    background-image: url('https://drive.google.com/file/d/1z2WrjMQNu30Qvaz1Jvk0Co4tE-Kt1lMJ/view?usp=drive_link ');
     background-size: auto 100%;
     background-position: left center;
     background-repeat: no-repeat;
@@ -2525,19 +2525,19 @@ section.mb-250:first-of-type {
 }
 
 .bg-card{
-    background: url('assets/2.jpeg');
+    background: url('2.jpeg');
     padding: 20px;
     border-radius: 20px;
 }
 
 .card2.bg-card{
-    background: url('assets/bg-image.png');
+    background: url('bg-image.png');
     background-size: cover;
     background-position: center;
 }
 
 .card3-card.bg-card{
-    background: url('assets/2.jpeg');
+    background: url('2.jpeg');
     background-size: cover;
     background-position: center;
 }
