@@ -1097,7 +1097,7 @@ body.dark-mode {
     letter-spacing: 0.5px;
     font-size: 14px;
     line-height: 1.4;
-    color: #ffffff70 !important;
+    color: #ffffff90 !important;
   }
 
   h1, h2, h3, h4, h5, h6{
@@ -1865,14 +1865,14 @@ a[href*="unicorn.studio"]{
 }
 .beta{
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff;
     color: #000;
     border-radius: 20px;
     height: 400px;
 }
 .gamma{
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff;
     color: #000;
     border-radius: 20px;
     height: 200px;
@@ -2647,7 +2647,7 @@ section.mb-250:first-of-type {
 
 #agency-word-reveal-text{
     font-weight: 300;
-    line-height: 1.1;
+    line-height: 1.3;
     letter-spacing: -0.02em;
 }
 
@@ -2759,25 +2759,24 @@ section.mb-250:first-of-type {
 .menu--wrapper {
     counter-reset: count;
     display: flex;
-    position: relative;
+    position: absolute;
     z-index: 1;
     height: 100%;
+    top: 0;
+    left: 0;
     width: 100%;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 .menu--item {
     counter-increment: count;
-    position: relative;
+    position: absolute;
     z-index: 1;
+    top: 0;
+    left: 0;
     width: 30vw;
-    height: 300px;
+    height: 100%;
     padding: 0 1.5vw;
     overflow: hidden;
-    flex-shrink: 0;
 }
 
 .menu--item:nth-child(n+10):before {
@@ -2785,7 +2784,7 @@ section.mb-250:first-of-type {
 }
 
 .menu--item figure {
-    position: relative;
+    position: absolute;
     z-index: 1;
     display: block;
     user-select: none;
@@ -2803,8 +2802,10 @@ section.mb-250:first-of-type {
 }
 
 .menu--item figure img {
-    position: relative;
+    position: absolute;
     z-index: 1;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -4503,6 +4504,9 @@ section {
     .text-heading h1{
         font-size: 40px;
     }
+    #agency-word-reveal-text{
+font-size: 25px;
+    }
     .insight-parts h1,
     .text-content h1{
         font-size: 80px !important;
@@ -5268,6 +5272,9 @@ section {
   
   .testimonial-split-quote {
     font-size: 20px;
+  }
+  .stat-number h1 {
+    font-size: 5rem;
   }
 }
 
