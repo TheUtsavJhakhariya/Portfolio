@@ -2,6 +2,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Permanent+Marker&display=swap');
 
+
+@font-face {
+    font-family: 'Sterion';
+    src: url('./assets/sterion-regular.woff2') format('woff2'),
+         url('./assets/sterion-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
 /* Section 5 - Hero Showcase Styles */
 .hero-showcase {
   position: relative;
@@ -1881,7 +1891,7 @@ a[href*="unicorn.studio"]{
 }
 .iota{
     padding: 20px;
-    background: url("https://drive.google.com/file/d/1z2WrjMQNu30Qvaz1Jvk0Co4tE-Kt1lMJ/view?usp=drive_link ");
+    background: url("3.jpeg");
     background-size: cover;
     border-radius: 20px;
     height: 400px;
@@ -2340,8 +2350,6 @@ section.mb-250:first-of-type {
 
 .impact-texts{
     width: 80%;
-    text-align: right;
-    margin: auto;
 }
 
 .impact-texts span{
@@ -4346,7 +4354,7 @@ section {
     }
 
     .stat-number{
-        margin: auto;
+        margin: auto 0;
     }
 
     .skills-section h2,
