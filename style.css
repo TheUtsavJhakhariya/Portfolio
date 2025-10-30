@@ -797,6 +797,7 @@
   font-size: 24px;
   font-weight: 600;
   color: #fff;
+  font-family: "Zen Dots", sans-serif;
   font-weight: 800 !important;
   font-style: italic !important;
   text-decoration: none;
@@ -1031,6 +1032,13 @@ img, video, canvas, svg, iframe {
     margin: 0 0.25em;
 }
 
+/* Google Font utility class (Zen Dots) */
+.zen-dots-regular {
+    font-family: "Zen Dots", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
 html, body {
     width: 100%;
     overflow-x: hidden;
@@ -1046,6 +1054,74 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
     /* padding-top: 70px; Account for fixed navbar */
     position: relative;
+}
+
+/* Custom cursor: hide system cursor globally */
+body, a, button, input, textarea {
+    cursor: none;
+}
+
+/* Small dot following the pointer */
+.cursor-dot {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+    mix-blend-mode: difference;
+    transition: opacity .2s ease;
+}
+
+/* Outer ring around the pointer */
+.cursor-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid #ff3b00;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 15px #ff3b00;
+    z-index: 10000;
+    transition: transform .15s ease, opacity .2s ease, border-color .2s ease;
+}
+
+.cursor-ring.is-hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    border-color: #ff3b00;
+    backdrop-filter: blur(6px);
+}
+
+.cursor-ring.is-clicked {
+    transform: translate(-50%, -50%) scale(0.85);
+}
+
+.cursor-ring.is-hidden, .cursor-dot.is-hidden {
+    opacity: 0;
+}
+
+/* Cursor appearance in theme states (toggled by dark-trigger) */
+body.light-mode .cursor-ring {
+    border-color: #ff3b00;
+    box-shadow: inset 0 0 15px #ff3b00;
+}
+
+body.dark-mode .cursor-ring {
+    border-color: #ffffff;
+    box-shadow: inset 0 0 10px #ffffff, 0 0 12px rgba(255,255,255,0.35);
+}
+
+body.dark-mode .cursor-ring.is-hover {
+    border-color: #ffffff;
+    box-shadow: inset 0 0 12px #ffffff, 0 0 16px rgba(255,255,255,0.5);
 }
 
 /* Vertical Lines Background - Only in Dark Mode */
@@ -1258,6 +1334,7 @@ a[href*="unicorn.studio"]{
     -webkit-text-stroke: 0px #000000;
     letter-spacing: 6px;       /* white border around text */
     /* text-stroke is non-standard; intentionally omitted standard fallback */
+    font-family: "Zen Dots", sans-serif;
   }
 
   /* Responsive typography + layout */
@@ -3634,7 +3711,6 @@ section {
     .hovering .hovering2:hover,
     .hovering .hovering3:hover {
         background: none !important;
-        color: #ff6b6b !important;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
 }
