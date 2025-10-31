@@ -2,6 +2,195 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Permanent+Marker&display=swap');
 
+/* Loading Screen Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff3b00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loading-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20vw;
+  font-weight: 700;
+  color: #ffffff50;
+  letter-spacing: 2vw;
+  text-transform: uppercase;
+  font-family: "Zen Dots", sans-serif;
+  animation: loadingFadeIn 0.8s ease both;
+  line-height: 0.9;
+  white-space: nowrap;
+  width: 100vw;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.loading-progress {
+  width: 400px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #ffffff;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+.loading-percentage {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 2px;
+  font-weight: 400;
+  animation: loadingFadeIn 0.8s ease 0.2s both;
+  font-family: "Zen Dots", sans-serif;
+}
+
+@keyframes loadingFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 10px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes loadingFadeInMobile {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 10px)) rotate(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive loading screen */
+@media (max-width: 768px) {
+  .loading-logo {
+    font-size: 20vw;
+    letter-spacing: 1.5vw;
+  }
+  
+  .loading-progress {
+    width: 300px;
+  }
+  
+  .loading-percentage {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-logo {
+    font-size: 20vh;
+    letter-spacing: 0.4vh;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transform: translate(-50%, calc(-50% + 10px)) rotate(90deg);
+    animation: loadingFadeInMobile 0.8s ease both;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  
+  .loading-screen {
+    overflow: hidden;
+  }
+  
+  .loading-content {
+    overflow: visible;
+  }
+  
+  .loading-progress {
+    width: 250px;
+  }
+  
+  .loading-percentage {
+    font-size: 14px;
+  }
+}
+
+/* Hide body content initially during loading */
+body.loading .navbar,
+body.loading section,
+body.loading footer {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.loaded .navbar,
+body.loaded section,
+body.loaded footer {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
 /* Section 5 - Hero Showcase Styles */
 .hero-showcase {
   position: relative;
