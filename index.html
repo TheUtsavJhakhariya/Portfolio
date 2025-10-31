@@ -12,7 +12,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
   </head>
-  <body class="light-mode">
+  <body class="light-mode loading">
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-content">
+        <div class="loading-logo">UTSAV</div>
+        <div class="loading-progress">
+          <div class="loading-progress-bar" id="loading-progress-bar"></div>
+        </div>
+        <div class="loading-percentage" id="loading-percentage">0%</div>
+      </div>
+    </div>
     
     <!-- Modern Navbar -->
     <nav class="navbar">
@@ -1902,6 +1913,62 @@
   </footer>
 
   <script>
+    // Loading Screen Animation
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add loading class to body
+      document.body.classList.add('loading');
+      
+      // Start loading animation
+      const loadingScreen = document.getElementById('loading-screen');
+      const progressBar = document.getElementById('loading-progress-bar');
+      const percentage = document.getElementById('loading-percentage');
+      
+      if (!loadingScreen || !progressBar || !percentage) {
+        // If elements not found, remove loading class and return
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+        return;
+      }
+      
+      // Hide body content initially
+      document.body.style.overflow = 'hidden';
+      
+      let progress = 0;
+      const duration = 2000; // 2 seconds total
+      const interval = 16; // Update every ~16ms (60fps)
+      const increment = 100 / (duration / interval);
+      
+      // Animate progress bar
+      const loadingInterval = setInterval(function() {
+        progress += increment;
+        
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(loadingInterval);
+          
+          // Update final values
+          progressBar.style.width = progress + '%';
+          percentage.textContent = '100%';
+          
+          // Wait a moment before hiding loading screen
+          setTimeout(function() {
+            loadingScreen.classList.add('hidden');
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+            document.body.style.overflow = '';
+            
+            // Remove loading screen from DOM after fade out
+            setTimeout(function() {
+              loadingScreen.style.display = 'none';
+            }, 500);
+          }, 300);
+        } else {
+          progressBar.style.width = progress + '%';
+          percentage.textContent = Math.floor(progress) + '%';
+        }
+      }, interval);
+    });
+
     // Function to toggle the dark theme
     const body = document.body;
     const observer = new IntersectionObserver(
