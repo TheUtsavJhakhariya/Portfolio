@@ -191,12 +191,39 @@ body.loading footer {
   visibility: hidden;
 }
 
+/* Hide cursor during loading */
+body.loading .cursor-dot,
+body.loading .cursor-ring {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 body.loaded .navbar,
 body.loaded section,
 body.loaded footer {
-  opacity: 1;
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
   transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Ensure navbar is visible when not loading */
+body:not(.loading) .navbar {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Show cursor after loading */
+body.loaded .cursor-dot,
+body.loaded .cursor-ring {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body:not(.loading) .cursor-dot,
+body:not(.loading) .cursor-ring {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* Section 5 - Hero Showcase Styles */
